@@ -28,8 +28,6 @@ T = {
  'The Packeta plugin table was not found. Install and set up the official Packeta plugin including packet status synchronization.':
   ('Nenašla se tabulka pluginu Zásilkovny. Nainstalujte a nastavte oficiální plugin Zásilkovny včetně synchronizace stavů zásilek.',
    'Nenašla sa tabuľka pluginu Packeta. Nainštalujte a nastavte oficiálny plugin Packeta vrátane synchronizácie stavov zásielok.'),
- 'The reminder e-mail is turned off in WooCommerce → Settings → Emails.':
-  ('E-mail s připomínkou je vypnutý ve WooCommerce → Nastavení → E-maily.', 'E-mail s pripomienkou je vypnutý vo WooCommerce → Nastavenia → E-maily.'),
  'Live': ('Ostrý provoz', 'Ostrá prevádzka'),
  'Test mode': ('Testovací režim', 'Testovací režim'),
  'Reminders go to customers.': ('Připomínky chodí zákaznicím.', 'Pripomienky chodia zákazníčkam.'),
@@ -48,8 +46,15 @@ T = {
  '3 days before the last day': ('3 dny před posledním dnem', '3 dni pred posledným dňom'),
  'Which parcels': ('Které zásilky', 'Ktoré zásielky'),
  'Cash on delivery only (unpaid parcels cost you return postage)': ('Jen dobírky (nezaplacená vrácená zásilka vás stojí poštovné)', 'Len dobierky (nezaplatená vrátená zásielka vás stojí poštovné)'),
- 'E-mail text': ('Text e-mailu', 'Text e-mailu'),
- 'Edit subject, heading and text': ('Upravit předmět, nadpis a text', 'Upraviť predmet, nadpis a text'),
+ 'E-mail': ('E-mail', 'E-mail'),
+ 'Send the reminder e-mail': ('Posílat e-mail s připomínkou', 'Posielať e-mail s pripomienkou'),
+ 'Subject': ('Předmět', 'Predmet'),
+ 'Heading': ('Nadpis', 'Nadpis'),
+ 'Closing text': ('Text na konec', 'Text na koniec'),
+ 'Below the text the e-mail shows the pickup deadline, pickup point, amount to pay and parcel number, then the order summary. You can use: %s':
+  ('Pod textem e-mail ukáže, do kdy si zásilku vyzvednout, výdejní místo, částku k zaplacení a číslo zásilky, potom rekapitulaci objednávky. Můžete použít: %s',
+   'Pod textom e-mail ukáže, do kedy si zásielku vyzdvihnúť, výdajné miesto, sumu na zaplatenie a číslo zásielky, potom rekapituláciu objednávky. Môžete použiť: %s'),
+ 'The reminder e-mail is turned off, customers get nothing. Turn it on below.': ('E-mail s připomínkou je vypnutý, zákaznice nedostanou nic. Zapněte ho níže.', 'E-mail s pripomienkou je vypnutý, zákazníčky nedostanú nič. Zapnite ho nižšie.'),
  'Save settings': ('Uložit nastavení', 'Uložiť nastavenia'),
  'Parcels waiting at a pickup point': ('Zásilky na výdejním místě', 'Zásielky na výdajnom mieste'),
  'No parcel is waiting for pickup right now.': ('Teď na vyzvednutí nečeká žádná zásilka.', 'Teraz na vyzdvihnutie nečaká žiadna zásielka.'),

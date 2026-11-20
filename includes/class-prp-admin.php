@@ -39,6 +39,23 @@ class PRP_Admin {
 			'only_cod'   => ! empty( $_POST['only_cod'] ),
 		);
 		update_option( PRP_Settings::OPTION, PRP_Settings::sanitize( $in ) );
+
+		// E-mail texts are stored in the WooCommerce e-mail settings, so both places stay in sync.
+		$email_opt = get_option( 'woocommerce_prp_pickup_reminder_settings', array() );
+		$email_opt = is_array( $email_opt ) ? $email_opt : array();
+		foreach ( array( 'subject', 'heading' ) as $f ) {
+			if ( isset( $_POST[ 'email_' . $f ] ) ) {
+				$email_opt[ $f ] = sanitize_text_field( wp_unslash( $_POST[ 'email_' . $f ] ) );
+			}
+		}
+		foreach ( array( 'intro', 'additional_content' ) as $f ) {
+			if ( isset( $_POST[ 'email_' . $f ] ) ) {
+				$email_opt[ $f ] = sanitize_textarea_field( wp_unslash( $_POST[ 'email_' . $f ] ) );
+			}
+		}
+		$email_opt['enabled'] = empty( $_POST['email_enabled'] ) ? 'no' : 'yes';
+		update_option( 'woocommerce_prp_pickup_reminder_settings', $email_opt );
+
 		wp_safe_redirect( self::url( array( 'prp_msg' => 'saved' ) ) );
 		exit;
 	}
@@ -83,6 +100,8 @@ class PRP_Admin {
 		$last     = get_option( 'prp_last_run' );
 		$post     = esc_url( admin_url( 'admin-post.php' ) );
 		$email_ok = 'no' !== ( get_option( 'woocommerce_prp_pickup_reminder_settings', array() )['enabled'] ?? 'yes' );
+		$emails   = WC()->mailer()->get_emails();
+		$mail     = $emails['PRP_Email'] ?? null;
 		?>
 		<div class="wrap prp">
 			<h1><?php esc_html_e( 'Pickup reminder', 'pickup-reminder-for-packeta' ); ?></h1>
@@ -93,7 +112,7 @@ class PRP_Admin {
 				<div class="notice notice-error inline"><p><?php esc_html_e( 'The Packeta plugin table was not found. Install and set up the official Packeta plugin including packet status synchronization.', 'pickup-reminder-for-packeta' ); ?></p></div>
 			<?php endif; ?>
 			<?php if ( ! $email_ok ) : ?>
-				<div class="notice notice-warning inline"><p><?php esc_html_e( 'The reminder e-mail is turned off in WooCommerce → Settings → Emails.', 'pickup-reminder-for-packeta' ); ?></p></div>
+				<div class="notice notice-warning inline"><p><?php esc_html_e( 'The reminder e-mail is turned off, customers get nothing. Turn it on below.', 'pickup-reminder-for-packeta' ); ?></p></div>
 			<?php endif; ?>
 
 			<div style="display:flex;gap:16px;flex-wrap:wrap;margin:16px 0">
@@ -154,8 +173,32 @@ class PRP_Admin {
 						<td><label><input type="checkbox" name="only_cod" value="1" <?php checked( PRP_Settings::only_cod() ); ?>> <?php esc_html_e( 'Cash on delivery only (unpaid parcels cost you return postage)', 'pickup-reminder-for-packeta' ); ?></label></td>
 					</tr>
 					<tr>
-						<th scope="row"><?php esc_html_e( 'E-mail text', 'pickup-reminder-for-packeta' ); ?></th>
-						<td><a href="<?php echo esc_url( admin_url( 'admin.php?page=wc-settings&tab=email&section=prp_email' ) ); ?>"><?php esc_html_e( 'Edit subject, heading and text', 'pickup-reminder-for-packeta' ); ?></a></td>
+						<th scope="row"><?php esc_html_e( 'E-mail', 'pickup-reminder-for-packeta' ); ?></th>
+						<td><label><input type="checkbox" name="email_enabled" value="1" <?php checked( $email_ok ); ?>> <?php esc_html_e( 'Send the reminder e-mail', 'pickup-reminder-for-packeta' ); ?></label></td>
+					</tr>
+					<tr>
+						<th scope="row"><label for="prp-subject"><?php esc_html_e( 'Subject', 'pickup-reminder-for-packeta' ); ?></label></th>
+						<td><input type="text" id="prp-subject" name="email_subject" class="large-text" value="<?php echo esc_attr( $mail ? $mail->get_option( 'subject', $mail->get_default_subject() ) : '' ); ?>"></td>
+					</tr>
+					<tr>
+						<th scope="row"><label for="prp-heading"><?php esc_html_e( 'Heading', 'pickup-reminder-for-packeta' ); ?></label></th>
+						<td><input type="text" id="prp-heading" name="email_heading" class="large-text" value="<?php echo esc_attr( $mail ? $mail->get_option( 'heading', $mail->get_default_heading() ) : '' ); ?>"></td>
+					</tr>
+					<tr>
+						<th scope="row"><label for="prp-intro"><?php esc_html_e( 'Text', 'pickup-reminder-for-packeta' ); ?></label></th>
+						<td><textarea id="prp-intro" name="email_intro" class="large-text" rows="4"><?php echo esc_textarea( $mail ? $mail->get_option( 'intro', $mail->get_default_intro() ) : '' ); ?></textarea></td>
+					</tr>
+					<tr>
+						<th scope="row"><label for="prp-additional"><?php esc_html_e( 'Closing text', 'pickup-reminder-for-packeta' ); ?></label></th>
+						<td>
+							<textarea id="prp-additional" name="email_additional_content" class="large-text" rows="2"><?php echo esc_textarea( $mail ? $mail->get_option( 'additional_content', $mail->get_default_additional_content() ) : '' ); ?></textarea>
+							<p class="description">
+								<?php
+								/* translators: %s: list of placeholders */
+								echo esc_html( sprintf( __( 'Below the text the e-mail shows the pickup deadline, pickup point, amount to pay and parcel number, then the order summary. You can use: %s', 'pickup-reminder-for-packeta' ), '{first_name}, {order_number}, {stored_until}, {pickup_point}' ) );
+								?>
+							</p>
+						</td>
 					</tr>
 				</table>
 				<?php submit_button( __( 'Save settings', 'pickup-reminder-for-packeta' ) ); ?>
@@ -165,7 +208,7 @@ class PRP_Admin {
 			<?php if ( ! $rows ) : ?>
 				<p><?php esc_html_e( 'No parcel is waiting for pickup right now.', 'pickup-reminder-for-packeta' ); ?></p>
 			<?php else : ?>
-				<table class="widefat striped" style="max-width:960px">
+				<div style="overflow-x:auto;max-width:960px"><table class="widefat striped">
 					<thead><tr>
 						<th><?php esc_html_e( 'Order', 'pickup-reminder-for-packeta' ); ?></th>
 						<th><?php esc_html_e( 'Stored until', 'pickup-reminder-for-packeta' ); ?></th>
@@ -205,7 +248,7 @@ class PRP_Admin {
 						</tr>
 					<?php endforeach; ?>
 					</tbody>
-				</table>
+				</table></div>
 			<?php endif; ?>
 		</div>
 		<?php

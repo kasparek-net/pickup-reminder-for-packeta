@@ -33,27 +33,27 @@ msgid "https://github.com/kasparek-net"
 msgstr "https://github.com/kasparek-net"
 
 #: includes/class-prp-admin.php:27
-#: includes/class-prp-admin.php:88
+#: includes/class-prp-admin.php:107
 msgid "Pickup reminder"
 msgstr "Připomínka vyzvednutí"
 
 #: includes/class-prp-admin.php:32
-#: includes/class-prp-admin.php:48
+#: includes/class-prp-admin.php:65
 msgid "You are not allowed to do this."
 msgstr "K tomu nemáte oprávnění."
 
-#: includes/class-prp-admin.php:59
+#: includes/class-prp-admin.php:76
 msgid "Settings saved."
 msgstr "Nastavení uloženo."
 
 #. translators: 1: sent, 2: due
-#: includes/class-prp-admin.php:65
+#: includes/class-prp-admin.php:82
 #, php-format
 msgid "Sent %1$d of %2$d reminders. Check that the e-mail is enabled in WooCommerce → Settings → Emails."
 msgstr "Odesláno %1$d z %2$d připomínek. Zkontrolujte, že je e-mail zapnutý ve WooCommerce → Nastavení → E-maily."
 
 #. translators: %d: number of e-mails
-#: includes/class-prp-admin.php:69
+#: includes/class-prp-admin.php:86
 #, php-format
 msgid "Check done, %d reminder sent."
 msgid_plural "Check done, %d reminders sent."
@@ -61,168 +61,191 @@ msgstr[0] "Kontrola hotová, odeslána %d připomínka."
 msgstr[1] "Kontrola hotová, odeslány %d připomínky."
 msgstr[2] "Kontrola hotová, odesláno %d připomínek."
 
-#: includes/class-prp-admin.php:90
+#: includes/class-prp-admin.php:109
 msgid "Customers get an e-mail before the last day their Packeta parcel can be picked up, so fewer parcels are sent back. Parcel status and the storage date come from the official Packeta plugin."
 msgstr "Zákaznice dostane e-mail před posledním dnem, kdy si může zásilku ze Zásilkovny vyzvednout, takže se méně zásilek vrací zpět. Stav zásilky i úložní dobu bere plugin z oficiálního pluginu Zásilkovny."
 
-#: includes/class-prp-admin.php:93
+#: includes/class-prp-admin.php:112
 msgid "The Packeta plugin table was not found. Install and set up the official Packeta plugin including packet status synchronization."
 msgstr "Nenašla se tabulka pluginu Zásilkovny. Nainstalujte a nastavte oficiální plugin Zásilkovny včetně synchronizace stavů zásilek."
 
-#: includes/class-prp-admin.php:96
-msgid "The reminder e-mail is turned off in WooCommerce → Settings → Emails."
-msgstr "E-mail s připomínkou je vypnutý ve WooCommerce → Nastavení → E-maily."
+#: includes/class-prp-admin.php:115
+msgid "The reminder e-mail is turned off, customers get nothing. Turn it on below."
+msgstr "E-mail s připomínkou je vypnutý, zákaznice nedostanou nic. Zapněte ho níže."
 
-#: includes/class-prp-admin.php:101
+#: includes/class-prp-admin.php:120
 msgid "Live"
 msgstr "Ostrý provoz"
 
-#: includes/class-prp-admin.php:101
+#: includes/class-prp-admin.php:120
 msgid "Test mode"
 msgstr "Testovací režim"
 
-#: includes/class-prp-admin.php:102
+#: includes/class-prp-admin.php:121
 msgid "Reminders go to customers."
 msgstr "Připomínky chodí zákaznicím."
 
 #. translators: %s: e-mail
-#: includes/class-prp-admin.php:102
+#: includes/class-prp-admin.php:121
 #, php-format
 msgid "Reminders go only to %s, customers get nothing."
 msgstr "Připomínky chodí jen na %s, zákaznicím nic."
 
-#: includes/class-prp-admin.php:106
+#: includes/class-prp-admin.php:125
 msgid "parcels waiting at a pickup point"
 msgstr "zásilek čeká na výdejním místě"
 
-#: includes/class-prp-admin.php:111
+#: includes/class-prp-admin.php:130
 msgid "last check (runs every hour, e-mails 8:00–20:00)"
 msgstr "poslední kontrola (běží každou hodinu, e-maily 8:00–20:00)"
 
-#: includes/class-prp-admin.php:116
+#: includes/class-prp-admin.php:135
 msgid "Check now"
 msgstr "Zkontrolovat teď"
 
-#: includes/class-prp-admin.php:121
+#: includes/class-prp-admin.php:140
 #: pickup-reminder-for-packeta.php:77
 msgid "Settings"
 msgstr "Nastavení"
 
-#: includes/class-prp-admin.php:127
+#: includes/class-prp-admin.php:146
 msgid "Mode"
 msgstr "Režim"
 
-#: includes/class-prp-admin.php:129
+#: includes/class-prp-admin.php:148
 msgid "Test – send reminders only to this address:"
 msgstr "Testovací – připomínky posílat jen na tuto adresu:"
 
-#: includes/class-prp-admin.php:131
+#: includes/class-prp-admin.php:150
 msgid "Live – send reminders to customers"
 msgstr "Ostrý – připomínky posílat zákaznicím"
 
-#: includes/class-prp-admin.php:135
+#: includes/class-prp-admin.php:154
 msgid "When"
 msgstr "Kdy"
 
-#: includes/class-prp-admin.php:140
+#: includes/class-prp-admin.php:159
 msgid "on the last day of storage"
 msgstr "v poslední den úložní doby"
 
-#: includes/class-prp-admin.php:141
+#: includes/class-prp-admin.php:160
 msgid "1 day before the last day"
 msgstr "1 den před posledním dnem"
 
-#: includes/class-prp-admin.php:142
+#: includes/class-prp-admin.php:161
 msgid "2 days before the last day"
 msgstr "2 dny před posledním dnem"
 
-#: includes/class-prp-admin.php:143
+#: includes/class-prp-admin.php:162
 msgid "3 days before the last day"
 msgstr "3 dny před posledním dnem"
 
-#: includes/class-prp-admin.php:153
+#: includes/class-prp-admin.php:172
 msgid "Which parcels"
 msgstr "Které zásilky"
 
-#: includes/class-prp-admin.php:154
+#: includes/class-prp-admin.php:173
 msgid "Cash on delivery only (unpaid parcels cost you return postage)"
 msgstr "Jen dobírky (nezaplacená vrácená zásilka vás stojí poštovné)"
 
-#: includes/class-prp-admin.php:157
-msgid "E-mail text"
-msgstr "Text e-mailu"
+#: includes/class-prp-admin.php:176
+msgid "E-mail"
+msgstr "E-mail"
 
-#: includes/class-prp-admin.php:158
-msgid "Edit subject, heading and text"
-msgstr "Upravit předmět, nadpis a text"
+#: includes/class-prp-admin.php:177
+msgid "Send the reminder e-mail"
+msgstr "Posílat e-mail s připomínkou"
 
-#: includes/class-prp-admin.php:161
+#: includes/class-prp-admin.php:180
+msgid "Subject"
+msgstr "Předmět"
+
+#: includes/class-prp-admin.php:184
+msgid "Heading"
+msgstr "Nadpis"
+
+#: includes/class-prp-admin.php:188
+#: includes/class-prp-email.php:122
+msgid "Text"
+msgstr "Text"
+
+#: includes/class-prp-admin.php:192
+msgid "Closing text"
+msgstr "Text na konec"
+
+#. translators: %s: list of placeholders
+#: includes/class-prp-admin.php:198
+#, php-format
+msgid "Below the text the e-mail shows the pickup deadline, pickup point, amount to pay and parcel number, then the order summary. You can use: %s"
+msgstr "Pod textem e-mail ukáže, do kdy si zásilku vyzvednout, výdejní místo, částku k zaplacení a číslo zásilky, potom rekapitulaci objednávky. Můžete použít: %s"
+
+#: includes/class-prp-admin.php:204
 msgid "Save settings"
 msgstr "Uložit nastavení"
 
-#: includes/class-prp-admin.php:164
+#: includes/class-prp-admin.php:207
 msgid "Parcels waiting at a pickup point"
 msgstr "Zásilky na výdejním místě"
 
-#: includes/class-prp-admin.php:166
+#: includes/class-prp-admin.php:209
 msgid "No parcel is waiting for pickup right now."
 msgstr "Teď na vyzvednutí nečeká žádná zásilka."
 
-#: includes/class-prp-admin.php:170
+#: includes/class-prp-admin.php:213
 msgid "Order"
 msgstr "Objednávka"
 
-#: includes/class-prp-admin.php:171
+#: includes/class-prp-admin.php:214
 msgid "Stored until"
 msgstr "Uloženo do"
 
-#: includes/class-prp-admin.php:172
+#: includes/class-prp-admin.php:215
 msgid "Cash on delivery"
 msgstr "Dobírka"
 
-#: includes/class-prp-admin.php:173
+#: includes/class-prp-admin.php:216
 #: templates/emails/plain/prp-pickup-reminder.php:29
 #: templates/emails/prp-pickup-reminder.php:39
 msgid "Pickup point"
 msgstr "Výdejní místo"
 
-#: includes/class-prp-admin.php:174
+#: includes/class-prp-admin.php:217
 msgid "Reminder"
 msgstr "Připomínka"
 
-#: includes/class-prp-admin.php:186
+#: includes/class-prp-admin.php:229
 msgid "sent"
 msgstr "odeslána"
 
-#: includes/class-prp-admin.php:186
+#: includes/class-prp-admin.php:229
 msgid "test sent"
 msgstr "odeslán test"
 
-#: includes/class-prp-admin.php:188
+#: includes/class-prp-admin.php:231
 msgid "not sent (order cancelled)"
 msgstr "neposílá se (objednávka zrušena)"
 
-#: includes/class-prp-admin.php:190
+#: includes/class-prp-admin.php:233
 msgid "not sent (paid)"
 msgstr "neposílá se (zaplaceno)"
 
-#: includes/class-prp-admin.php:192
+#: includes/class-prp-admin.php:235
 msgid "not sent (storage date passed)"
 msgstr "neposílá se (termín už minul)"
 
-#: includes/class-prp-admin.php:194
+#: includes/class-prp-admin.php:237
 msgid "today"
 msgstr "dnes"
 
-#: includes/class-prp-admin.php:196
+#: includes/class-prp-admin.php:239
 msgid "planned"
 msgstr "naplánováno"
 
-#: includes/class-prp-admin.php:202
+#: includes/class-prp-admin.php:245
 msgid "yes"
 msgstr "ano"
 
-#: includes/class-prp-admin.php:202
+#: includes/class-prp-admin.php:245
 msgid "no"
 msgstr "ne"
 
@@ -255,10 +278,6 @@ msgstr "Děkujeme, že si ji vyzvednete včas."
 #, php-format
 msgid "[Test for %1$s] %2$s"
 msgstr "[Test pro %1$s] %2$s"
-
-#: includes/class-prp-email.php:122
-msgid "Text"
-msgstr "Text"
 
 #. translators: %s: list of placeholders
 #: includes/class-prp-email.php:127
