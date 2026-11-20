@@ -1,0 +1,292 @@
+# Copyright (C) 2026 Jakub Kašpárek
+# This file is distributed under the GPLv2 or later.
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: sk_SK\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Domain: pickup-reminder-for-packeta\n"
+
+#. Plugin Name of the plugin
+#: pickup-reminder-for-packeta.php
+msgid "Pickup Reminder for Packeta"
+msgstr "Pripomienka vyzdvihnutia pre Packetu"
+
+#. Plugin URI of the plugin
+#: pickup-reminder-for-packeta.php
+msgid "https://wp.kasparek.app/"
+msgstr "https://wp.kasparek.app/"
+
+#. Description of the plugin
+#: pickup-reminder-for-packeta.php
+msgid "E-mails customers before the last day their Packeta (Zásilkovna) parcel can be picked up, so fewer cash-on-delivery parcels come back. Uses the parcel status and storage date synced by the official Packeta plugin."
+msgstr "Pošle zákazníčke e-mail pred posledným dňom, keď si môže vyzdvihnúť zásielku z Packety, takže sa vracia menej dobierok. Stav zásielky a úložnú dobu berie z oficiálneho pluginu Packeta."
+
+#. Author of the plugin
+#: pickup-reminder-for-packeta.php
+msgid "Jakub Kašpárek"
+msgstr "Jakub Kašpárek"
+
+#. Author URI of the plugin
+#: pickup-reminder-for-packeta.php
+msgid "https://github.com/kasparek-net"
+msgstr "https://github.com/kasparek-net"
+
+#: includes/class-prp-admin.php:27
+#: includes/class-prp-admin.php:88
+msgid "Pickup reminder"
+msgstr "Pripomienka vyzdvihnutia"
+
+#: includes/class-prp-admin.php:32
+#: includes/class-prp-admin.php:48
+msgid "You are not allowed to do this."
+msgstr "Na to nemáte oprávnenie."
+
+#: includes/class-prp-admin.php:59
+msgid "Settings saved."
+msgstr "Nastavenia uložené."
+
+#. translators: 1: sent, 2: due
+#: includes/class-prp-admin.php:65
+#, php-format
+msgid "Sent %1$d of %2$d reminders. Check that the e-mail is enabled in WooCommerce → Settings → Emails."
+msgstr "Odoslané %1$d z %2$d pripomienok. Skontrolujte, či je e-mail zapnutý vo WooCommerce → Nastavenia → E-maily."
+
+#. translators: %d: number of e-mails
+#: includes/class-prp-admin.php:69
+#, php-format
+msgid "Check done, %d reminder sent."
+msgid_plural "Check done, %d reminders sent."
+msgstr[0] "Kontrola hotová, odoslaná %d pripomienka."
+msgstr[1] "Kontrola hotová, odoslané %d pripomienky."
+msgstr[2] "Kontrola hotová, odoslaných %d pripomienok."
+
+#: includes/class-prp-admin.php:90
+msgid "Customers get an e-mail before the last day their Packeta parcel can be picked up, so fewer parcels are sent back. Parcel status and the storage date come from the official Packeta plugin."
+msgstr "Zákazníčka dostane e-mail pred posledným dňom, keď si môže zásielku z Packety vyzdvihnúť, takže sa menej zásielok vracia späť. Stav zásielky aj úložnú dobu berie plugin z oficiálneho pluginu Packeta."
+
+#: includes/class-prp-admin.php:93
+msgid "The Packeta plugin table was not found. Install and set up the official Packeta plugin including packet status synchronization."
+msgstr "Nenašla sa tabuľka pluginu Packeta. Nainštalujte a nastavte oficiálny plugin Packeta vrátane synchronizácie stavov zásielok."
+
+#: includes/class-prp-admin.php:96
+msgid "The reminder e-mail is turned off in WooCommerce → Settings → Emails."
+msgstr "E-mail s pripomienkou je vypnutý vo WooCommerce → Nastavenia → E-maily."
+
+#: includes/class-prp-admin.php:101
+msgid "Live"
+msgstr "Ostrá prevádzka"
+
+#: includes/class-prp-admin.php:101
+msgid "Test mode"
+msgstr "Testovací režim"
+
+#: includes/class-prp-admin.php:102
+msgid "Reminders go to customers."
+msgstr "Pripomienky chodia zákazníčkam."
+
+#. translators: %s: e-mail
+#: includes/class-prp-admin.php:102
+#, php-format
+msgid "Reminders go only to %s, customers get nothing."
+msgstr "Pripomienky chodia len na %s, zákazníčkam nič."
+
+#: includes/class-prp-admin.php:106
+msgid "parcels waiting at a pickup point"
+msgstr "zásielok čaká na výdajnom mieste"
+
+#: includes/class-prp-admin.php:111
+msgid "last check (runs every hour, e-mails 8:00–20:00)"
+msgstr "posledná kontrola (beží každú hodinu, e-maily 8:00–20:00)"
+
+#: includes/class-prp-admin.php:116
+msgid "Check now"
+msgstr "Skontrolovať teraz"
+
+#: includes/class-prp-admin.php:121
+#: pickup-reminder-for-packeta.php:77
+msgid "Settings"
+msgstr "Nastavenia"
+
+#: includes/class-prp-admin.php:127
+msgid "Mode"
+msgstr "Režim"
+
+#: includes/class-prp-admin.php:129
+msgid "Test – send reminders only to this address:"
+msgstr "Testovací – pripomienky posielať len na túto adresu:"
+
+#: includes/class-prp-admin.php:131
+msgid "Live – send reminders to customers"
+msgstr "Ostrý – pripomienky posielať zákazníčkam"
+
+#: includes/class-prp-admin.php:135
+msgid "When"
+msgstr "Kedy"
+
+#: includes/class-prp-admin.php:140
+msgid "on the last day of storage"
+msgstr "v posledný deň úložnej doby"
+
+#: includes/class-prp-admin.php:141
+msgid "1 day before the last day"
+msgstr "1 deň pred posledným dňom"
+
+#: includes/class-prp-admin.php:142
+msgid "2 days before the last day"
+msgstr "2 dni pred posledným dňom"
+
+#: includes/class-prp-admin.php:143
+msgid "3 days before the last day"
+msgstr "3 dni pred posledným dňom"
+
+#: includes/class-prp-admin.php:153
+msgid "Which parcels"
+msgstr "Ktoré zásielky"
+
+#: includes/class-prp-admin.php:154
+msgid "Cash on delivery only (unpaid parcels cost you return postage)"
+msgstr "Len dobierky (nezaplatená vrátená zásielka vás stojí poštovné)"
+
+#: includes/class-prp-admin.php:157
+msgid "E-mail text"
+msgstr "Text e-mailu"
+
+#: includes/class-prp-admin.php:158
+msgid "Edit subject, heading and text"
+msgstr "Upraviť predmet, nadpis a text"
+
+#: includes/class-prp-admin.php:161
+msgid "Save settings"
+msgstr "Uložiť nastavenia"
+
+#: includes/class-prp-admin.php:164
+msgid "Parcels waiting at a pickup point"
+msgstr "Zásielky na výdajnom mieste"
+
+#: includes/class-prp-admin.php:166
+msgid "No parcel is waiting for pickup right now."
+msgstr "Teraz na vyzdvihnutie nečaká žiadna zásielka."
+
+#: includes/class-prp-admin.php:170
+msgid "Order"
+msgstr "Objednávka"
+
+#: includes/class-prp-admin.php:171
+msgid "Stored until"
+msgstr "Uložené do"
+
+#: includes/class-prp-admin.php:172
+msgid "Cash on delivery"
+msgstr "Dobierka"
+
+#: includes/class-prp-admin.php:173
+#: templates/emails/plain/prp-pickup-reminder.php:29
+#: templates/emails/prp-pickup-reminder.php:39
+msgid "Pickup point"
+msgstr "Výdajné miesto"
+
+#: includes/class-prp-admin.php:174
+msgid "Reminder"
+msgstr "Pripomienka"
+
+#: includes/class-prp-admin.php:186
+msgid "sent"
+msgstr "odoslaná"
+
+#: includes/class-prp-admin.php:186
+msgid "test sent"
+msgstr "odoslaný test"
+
+#: includes/class-prp-admin.php:188
+msgid "not sent (order cancelled)"
+msgstr "neposiela sa (objednávka zrušená)"
+
+#: includes/class-prp-admin.php:190
+msgid "not sent (paid)"
+msgstr "neposiela sa (zaplatené)"
+
+#: includes/class-prp-admin.php:192
+msgid "not sent (storage date passed)"
+msgstr "neposiela sa (termín už uplynul)"
+
+#: includes/class-prp-admin.php:194
+msgid "today"
+msgstr "dnes"
+
+#: includes/class-prp-admin.php:196
+msgid "planned"
+msgstr "naplánované"
+
+#: includes/class-prp-admin.php:202
+msgid "yes"
+msgstr "áno"
+
+#: includes/class-prp-admin.php:202
+msgid "no"
+msgstr "nie"
+
+#: includes/class-prp-email.php:23
+msgid "Pickup reminder (Packeta)"
+msgstr "Pripomienka vyzdvihnutia (Packeta)"
+
+#: includes/class-prp-email.php:24
+msgid "Sent to the customer before the last day their Packeta parcel can be picked up at the pickup point. When and to whom is set in WooCommerce → Pickup reminder."
+msgstr "Posiela sa zákazníčke pred posledným dňom, keď si môže zásielku z Packety vyzdvihnúť na výdajnom mieste. Kedy a komu sa nastavuje vo WooCommerce → Pripomienka vyzdvihnutia."
+
+#: includes/class-prp-email.php:38
+msgid "Your parcel is waiting – pick it up by {stored_until}"
+msgstr "Zásielka na vás čaká – vyzdvihnite si ju do {stored_until}"
+
+#: includes/class-prp-email.php:42
+msgid "Your parcel is waiting for you"
+msgstr "Zásielka na vás čaká"
+
+#: includes/class-prp-email.php:46
+msgid "Hello, your parcel for order {order_number} is waiting for you at the pickup point. You can pick it up until {stored_until}; after that it will be sent back to us."
+msgstr "Dobrý deň, zásielka s vašou objednávkou {order_number} na vás čaká na výdajnom mieste. Vyzdvihnúť si ju môžete do {stored_until}, potom sa vracia späť k nám."
+
+#: includes/class-prp-email.php:50
+msgid "Thank you for picking it up in time."
+msgstr "Ďakujeme, že si ju vyzdvihnete včas."
+
+#. translators: 1: customer e-mail, 2: original subject
+#: includes/class-prp-email.php:80
+#, php-format
+msgid "[Test for %1$s] %2$s"
+msgstr "[Test pre %1$s] %2$s"
+
+#: includes/class-prp-email.php:122
+msgid "Text"
+msgstr "Text"
+
+#. translators: %s: list of placeholders
+#: includes/class-prp-email.php:127
+#, php-format
+msgid "Text above the parcel details. Available placeholders: %s"
+msgstr "Text nad údajmi o zásielke. Môžete použiť: %s"
+
+#. translators: %s: last day of pickup storage
+#: includes/class-prp-reminder.php:166
+#, php-format
+msgid "Pickup reminder sent to the customer (parcel stored until %s)."
+msgstr "Zákazníčke odoslaná pripomienka vyzdvihnutia (zásielka uložená do %s)."
+
+#: templates/emails/plain/prp-pickup-reminder.php:28
+#: templates/emails/prp-pickup-reminder.php:35
+msgid "Pick up by"
+msgstr "Vyzdvihnite do"
+
+#: templates/emails/plain/prp-pickup-reminder.php:31
+#: templates/emails/prp-pickup-reminder.php:52
+msgid "To pay on pickup"
+msgstr "Zaplatíte pri prevzatí"
+
+#: templates/emails/plain/prp-pickup-reminder.php:33
+#: templates/emails/prp-pickup-reminder.php:57
+msgid "Parcel number"
+msgstr "Číslo zásielky"
+
+#: templates/emails/prp-pickup-reminder.php:46
+msgid "Opening hours and map"
+msgstr "Otváracie hodiny a mapa"

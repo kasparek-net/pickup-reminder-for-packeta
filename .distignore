@@ -1,0 +1,10 @@
+/.git
+/.gitignore
+/.distignore
+/.DS_Store
+/.claude
+/.nahledy
+/tests
+/languages/build.py
+/languages/*.po
+/languages/.claude
