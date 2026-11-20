@@ -4,7 +4,7 @@ Tags: packeta, zasilkovna, woocommerce, cash on delivery, reminder
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,7 +21,7 @@ Unpicked cash-on-delivery parcels cost the shop postage twice and bring no money
 * **Test mode first** – reminders go only to your address until you switch to live.
 * **Standard WooCommerce e-mail** – subject, heading and text are edited in WooCommerce → Settings → Emails, the e-mail uses your store's e-mail design and sender name. Templates can be overridden in the theme (`woocommerce/emails/prp-pickup-reminder.php`).
 * **Overview** – WooCommerce → Pickup reminder lists parcels waiting at a pickup point and whether the reminder was sent.
-* Czech and Slovak translations included.
+* **Czech first** – the plugin speaks Czech everywhere (Slovak on Slovak sites), regardless of the site language. Both translations are bundled.
 
 == Installation ==
 
@@ -40,6 +40,9 @@ From the official Packeta plugin, which downloads packet statuses and the "store
 It only adds an order note and a hidden meta field after sending the reminder.
 
 == Changelog ==
+
+= 1.0.1 =
+* Czech everywhere (Slovak on Slovak sites), regardless of the site language.
 
 = 1.0.0 =
 * First version.
