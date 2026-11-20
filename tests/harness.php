@@ -59,6 +59,13 @@ check( 'only_cod off', $s['only_cod'], 'no' );
 check( 'unknown mode → test', PRP_Settings::sanitize( array( 'mode' => 'xx' ) )['mode'], 'test' );
 check( 'default mode test', PRP_Settings::defaults()['mode'], 'test' );
 
+// Bundled translation.
+check( 'cs site → cs', PRP_Settings::translation_for( 'cs_CZ' ), 'cs_CZ' );
+check( 'en_US default → cs', PRP_Settings::translation_for( 'en_US' ), 'cs_CZ' );
+check( 'sk → sk', PRP_Settings::translation_for( 'sk_SK' ), 'sk_SK' );
+check( 'hu → none (language pack / English)', PRP_Settings::translation_for( 'hu_HU' ), '' );
+check( 'pl → none', PRP_Settings::translation_for( 'pl_PL' ), '' );
+
 // Tracking URL.
 check( 'tracking url en', PRP_Reminder::tracking_url( '1234567890' ), 'https://tracking.packeta.com/en/?id=Z1234567890' );
 check( 'tracking url cs with Z', PRP_Reminder::tracking_url( 'Z1234567890', 'cs_CZ' ), 'https://tracking.packeta.com/cs/?id=Z1234567890' );

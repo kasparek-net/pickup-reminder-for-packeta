@@ -1,9 +1,12 @@
 /.git
+/.github
 /.gitignore
 /.distignore
+/.wordpress-org
 /.DS_Store
 /.claude
 /.nahledy
+/README.md
 /tests
 /languages/build.py
 /languages/*.po

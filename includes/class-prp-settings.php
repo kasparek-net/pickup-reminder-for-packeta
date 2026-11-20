@@ -44,6 +44,20 @@ class PRP_Settings {
 		return 'yes' === self::get( 'only_cod' );
 	}
 
+	/**
+	 * Bundled translation for a locale: Czech on Czech sites and on English sites (often
+	 * just the untouched WordPress default), Slovak on Slovak sites, none elsewhere (the
+	 * language pack or English is used). Filter `prp_translation` to override.
+	 */
+	public static function translation_for( $locale ) {
+		$map = array(
+			'cs' => 'cs_CZ',
+			'en' => 'cs_CZ',
+			'sk' => 'sk_SK',
+		);
+		return $map[ substr( (string) $locale, 0, 2 ) ] ?? '';
+	}
+
 	public static function sanitize( array $in ) {
 		$email = sanitize_email( (string) ( $in['test_email'] ?? '' ) );
 		return array(

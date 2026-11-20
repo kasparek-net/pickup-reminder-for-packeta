@@ -1,9 +1,9 @@
 <?php
 /**
  * Plugin Name: Pickup Reminder for Packeta
- * Plugin URI: https://wp.kasparek.app/
+ * Plugin URI: https://github.com/kasparek-net/pickup-reminder-for-packeta
  * Description: E-mails customers before the last day their Packeta (Zásilkovna) parcel can be picked up, so fewer cash-on-delivery parcels come back. Uses the parcel status and storage date synced by the official Packeta plugin.
- * Version: 1.0.1
+ * Version: 1.0.2
  * Requires at least: 6.4
  * Requires PHP: 7.4
  * Requires Plugins: woocommerce, packeta
@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'PRP_VERSION', '1.0.1' );
+define( 'PRP_VERSION', '1.0.2' );
 define( 'PRP_PLUGIN_FILE', __FILE__ );
 define( 'PRP_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 
@@ -34,14 +34,16 @@ require_once PRP_PLUGIN_PATH . 'includes/class-prp-admin.php';
 register_deactivation_hook( __FILE__, array( 'PRP_Reminder', 'unschedule' ) );
 
 /**
- * Czech first: the plugin speaks Czech everywhere (Slovak on Slovak sites), whatever
- * the site language or language packs say.
+ * Bundled Czech/Slovak translation, see PRP_Settings::translation_for().
  *
  * @param string $locale Active locale; the translation is stored under it.
  */
 function prp_load_translation( $locale = '' ) {
 	$locale = $locale ? $locale : determine_locale();
-	$lang   = 0 === strpos( $locale, 'sk' ) ? 'sk_SK' : 'cs_CZ';
+	$lang   = (string) apply_filters( 'prp_translation', PRP_Settings::translation_for( $locale ), $locale );
+	if ( ! in_array( $lang, array( 'cs_CZ', 'sk_SK' ), true ) ) {
+		return;
+	}
 	unload_textdomain( 'pickup-reminder-for-packeta', true );
 	load_textdomain( 'pickup-reminder-for-packeta', PRP_PLUGIN_PATH . 'languages/pickup-reminder-for-packeta-' . $lang . '.mo', $locale );
 }
