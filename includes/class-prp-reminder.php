@@ -109,14 +109,14 @@ class PRP_Reminder {
 			return array();
 		}
 		$table = self::table();
-		$sql   = 'SELECT id, packet_id, packet_status, stored_until, cod, point_name, point_street, point_city, point_zip, point_url FROM %i WHERE packet_status = %s AND packet_id IS NOT NULL';
-		$args  = array( $table, self::READY );
 		if ( $stored_until ) {
-			$sql   .= ' AND stored_until = %s';
-			$args[] = $stored_until;
+			// phpcs:ignore WordPress.DB.DirectDatabaseQuery -- read-only query on the Packeta plugin table.
+			$rows = $wpdb->get_results( $wpdb->prepare( 'SELECT id, packet_id, packet_status, stored_until, cod, point_name, point_street, point_city, point_zip, point_url FROM %i WHERE packet_status = %s AND packet_id IS NOT NULL AND stored_until = %s ORDER BY id ASC LIMIT 500', $table, self::READY, $stored_until ), ARRAY_A );
+		} else {
+			// phpcs:ignore WordPress.DB.DirectDatabaseQuery -- read-only query on the Packeta plugin table.
+			$rows = $wpdb->get_results( $wpdb->prepare( 'SELECT id, packet_id, packet_status, stored_until, cod, point_name, point_street, point_city, point_zip, point_url FROM %i WHERE packet_status = %s AND packet_id IS NOT NULL ORDER BY stored_until ASC, id ASC LIMIT 500', $table, self::READY ), ARRAY_A );
 		}
-		$sql .= ' ORDER BY stored_until ASC, id ASC LIMIT 500';
-		return (array) $wpdb->get_results( $wpdb->prepare( $sql, $args ), ARRAY_A ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery, WordPress.DB.PreparedSQL.NotPrepared -- Packeta plugin table, placeholders above.
+		return (array) $rows;
 	}
 
 	/**
